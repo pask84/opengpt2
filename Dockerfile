@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y apache2 \
 WORKDIR /var/www/flask_predict_api/
 COPY ./flask_predict_api.wsgi /var/www/flask_predict_api/flask_predict_api.wsgi
 COPY ./flask_demo /var/www/flask_predict_api/
-RUN pip install -r requirements.txt --no-use-wheel
+RUN pip install -r requirements.txt
 #RUN python3 download_model.py 124M
 #RUN python3 download_model.py 355M
 #RUN python3 download_model.py 774M
