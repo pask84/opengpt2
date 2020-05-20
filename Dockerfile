@@ -5,6 +5,7 @@ FROM continuumio/anaconda3:4.4.0
 MAINTAINER Emmanuel Raj, AI Engineer
 EXPOSE 8000
 WORKDIR /var/www/flask_predict_api/
+RUN mkdir models
 RUN mkdir models/355M
 RUN gsutils cp gs://gpt2_355m_bucket/checkpoint_the-ascent-355M.tar models/355M
 RUN tar -C models/355M -zxvf models/355M/checkpoint_the-ascent-355M.tar
