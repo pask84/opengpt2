@@ -9,9 +9,9 @@ RUN mkdir models
 RUN mkdir models/355M
 #RUN gsutils cp gs://gpt2_355m_bucket/checkpoint_the-ascent-355M.tar models/355M
 RUN cd models/355M
-RUN curl https://storage.cloud.google.com/gpt2_355m_bucket/checkpoint_the-ascent-355M.tar --output checkpoint_the-ascent-355M.tar
+RUN curl https://storage.cloud.google.com/gpt2_355m_bucket/checkpoint_the-ascent-355M.tar --output checkpoint_the-ascent-355M.tar && tar -zxvf checkpoint_the-ascent-355M.tar
 #RUN tar -C models/355M -zxvf checkpoint_the-ascent-355M.tar
-RUN tar -zxvf checkpoint_the-ascent-355M.tar
+#RUN tar -zxvf checkpoint_the-ascent-355M.tar
 RUN ls
 RUN cd /var/www/flask_predict_api/
 RUN pip install --upgrade pip
