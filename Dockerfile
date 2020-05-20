@@ -5,8 +5,9 @@ FROM continuumio/anaconda3:4.4.0
 MAINTAINER Emmanuel Raj, AI Engineer
 EXPOSE 8000
 RUN pip install --upgrade pip
-RUN pip install setuptools>=41.0.0
 RUN conda remove wrapt --yes
+RUN pip uninstall -y setuptools
+RUN pip install setuptools>=41.0.0
 RUN pip install tensorflow==1.15
 RUN apt-get update && apt-get install -y apache2 \
     apache2-dev \   
