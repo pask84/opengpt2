@@ -7,9 +7,13 @@ EXPOSE 8000
 WORKDIR /var/www/flask_predict_api/
 RUN mkdir models
 RUN mkdir models/355M
-RUN gsutils cp gs://gpt2_355m_bucket/checkpoint_the-ascent-355M.tar models/355M
-RUN tar -C models/355M -zxvf models/355M/checkpoint_the-ascent-355M.tar
-RUN ls models/355M
+#RUN gsutils cp gs://gpt2_355m_bucket/checkpoint_the-ascent-355M.tar models/355M
+RUN cd models/355M
+RUN curl https://storage.cloud.google.com/gpt2_355m_bucket/checkpoint_the-ascent-355M.tar
+#RUN tar -C models/355M -zxvf models/355M/checkpoint_the-ascent-355M.tar
+RUN tar -zxvf models/355M/checkpoint_the-ascent-355M.tar
+RUN ls
+RUN cd /var/www/flask_predict_api/
 RUN pip install --upgrade pip
 RUN conda remove wrapt --yes
 RUN pip uninstall -y setuptools
