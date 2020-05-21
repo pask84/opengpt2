@@ -1,4 +1,3 @@
-setuptools>=41.0.0
 tensorflow==1.15
 fire>=0.1.3
 regex==2017.4.5
